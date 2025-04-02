@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+    <script>
+        fetch('http://localhost:8000/api/articles/', {
+            credentials: 'include'
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            document.getElementById('result').textContent = 'Error: ' + error;
+        });
+    </script>
+</head>
+<body>
+    <h1>API Test Result:</h1>
+    <pre id="result">Loading...</pre>
+</body>
+</html>
