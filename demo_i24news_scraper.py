@@ -1,6 +1,9 @@
 from news.scrapers.i24news_scraper import I24NewsScraper
 import json
 from datetime import datetime
+import requests
+from bs4 import BeautifulSoup
+from news.scrapers.utils import RequestHandler
 
 def format_article(article):
     """Format article data for display"""
@@ -9,10 +12,7 @@ def format_article(article):
         
     # Convert datetime to string if present
     if article.get('pub_date') and isinstance(article['pub_date'], datetime):
-        article['pub_date'] = article['pub_date'].isoformat()
-        
-    return json.dumps(article, indent=2)
-
+        article['pub_date'] =
 def main():
     scraper = I24NewsScraper()
     
